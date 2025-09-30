@@ -26,6 +26,56 @@ namespace Popov_Autoservice
 
             var currentServices = Popov_AutoserviceEntities1.GetContext().Service.ToList();
             ServiceListView.ItemsSource = currentServices;
+
+            ComboType.SelectedIndex = 0;
+
+            UpdateServices();
+        }
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateServices();
+        }
+        private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateServices();
+        }
+        private void RButtonUp_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateServices();
+        }
+        private void RButtonDown_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateServices();
+        }
+
+        private void UpdateServices()
+        {
+            var currentServices = Popov_AutoserviceEntities1.GetContext().Service.ToList();
+
+            if (ComboType.SelectedIndex == 0)
+            {
+                currentServices = currentServices.Where(p => (Convert.ToInt32(p.Discount) > 0 && Convert.ToInt32(p.Discount) <= 100)).ToList();
+            }
+            else if (ComboType.SelectedIndex == 1)
+            {
+                currentServices = currentServices.Where(p => (Convert.ToInt32(p.Discount) > 0 && Convert.ToInt32(p.Discount) < 5)).ToList();
+            }
+            else if (ComboType.SelectedIndex == 2)
+            {
+                currentServices = currentServices.Where(p => (Convert.ToInt32(p.Discount) >= 5 && Convert.ToInt32(p.Discount) <= 15)).ToList();
+            }
+            else if (ComboType.SelectedIndex == 3)
+            {
+                currentServices = currentServices.Where(p => (Convert.ToInt32(p.Discount) >= 15 && Convert.ToInt32(p.Discount) <= 30)).ToList();
+            }
+            else if (ComboType.SelectedIndex == 4)
+            {
+                currentServices = currentServices.Where(p => (Convert.ToInt32(p.Discount) >= 30 && Convert.ToInt32(p.Discount) <= 70)).ToList();
+            }
+            else if (ComboType.SelectedIndex == 5)
+            {
+                currentServices = currentServices.Where(p => (Convert.ToInt32(p.Discount) >= 70 && Convert.ToInt32(p.Discount) <= 100)).ToList();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

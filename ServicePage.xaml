@@ -74,7 +74,7 @@
                         </TextBlock>
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                             <Button Name="EditButton" Content="редактировать" Margin="2"></Button>
-                            <Button Name="DeleteButton" Content="удалить" Margin="2"></Button>
+                            <Button Name="DeleteButton" Content="удалить" Margin="2" Click="DeleteButton_Click"></Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

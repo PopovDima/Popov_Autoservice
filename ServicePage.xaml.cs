@@ -62,15 +62,15 @@ namespace Popov_Autoservice
             }
             if (ComboType.SelectedIndex == 2)
             {
-                currentServices = currentServices.Where(p => (p.DiscountInt >= 5 && p.DiscountInt <= 15)).ToList();
+                currentServices = currentServices.Where(p => (p.DiscountInt >= 5 && p.DiscountInt < 15)).ToList();
             }
             if (ComboType.SelectedIndex == 3)
             {
-                currentServices = currentServices.Where(p => (p.DiscountInt >= 15 && p.DiscountInt <= 30)).ToList();
+                currentServices = currentServices.Where(p => (p.DiscountInt >= 15 && p.DiscountInt < 30)).ToList();
             }
             if (ComboType.SelectedIndex == 4)
             {
-                currentServices = currentServices.Where(p => (p.DiscountInt >= 30 && p.DiscountInt <= 70)).ToList();
+                currentServices = currentServices.Where(p => (p.DiscountInt >= 30 && p.DiscountInt < 70)).ToList();
             }
             if (ComboType.SelectedIndex == 5)
             {
@@ -95,6 +95,29 @@ namespace Popov_Autoservice
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage());
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var currentService = (sender as Button).DataContext as Service;
+
+            var currentClientServices = Popov_AutoserviceEntities1.GetContext().ClientService.ToList();
+            if (MessageBox.Show("Вы точно хотите выполнить удаление?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Popov_AutoserviceEntities1.GetContext().Service.Remove(currentService);
+                    Popov_AutoserviceEntities1.GetContext().SaveChanges();
+
+                    ServiceListView.ItemsSource = Popov_AutoserviceEntities1.GetContext().Service.ToList();
+
+                    UpdateServices();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

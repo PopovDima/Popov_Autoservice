@@ -13,12 +13,27 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Name="TBCount" FontSize="20" Height="20"></TextBlock>
+            <TextBlock Name="TBAllRecords" FontSize="20" Height="20"></TextBlock>
+            <Button Name="LeftDirButton" Content="&lt;" Width="20" Height="20" Click="LeftDirButton_Click"></Button>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirButton" Content="&gt;" Width="20" Height="20" Click="RightDirButton_Click"></Button>
+        </StackPanel>
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Margin="20" Orientation="Horizontal">
                 <TextBlock Text="Введите название для поиска" TextAlignment="Right" Width="300" FontSize="20"></TextBlock>
                 <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="300" FontSize="15"></TextBox>
             </StackPanel>
+            
             <StackPanel Margin="10" Orientation="Horizontal">
                 <TextBlock Text="Введите название для фильтра" TextAlignment="Right" Width="300" FontSize="20"></TextBlock>
                 <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15" Width="200">
@@ -35,6 +50,7 @@
             <RadioButton Content="По возрастанию стоимости" GroupName="Sort" Width="300" FontSize="20" Checked="RButtonUp_Checked" Name="RButtonUp"></RadioButton>
             <RadioButton Content="По убыванию стоимости" GroupName="Sort" Width="300" FontSize="20" Checked="RButtonDown_Checked" Name="RButtonDown"></RadioButton>
         </StackPanel>
+        
         <ListView Name="ServiceListView" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -49,12 +65,12 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Image Width="100" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center">
+                        <Image Width="200" Grid.Column="0" Grid.RowSpan="4" Stretch="UniformToFill" HorizontalAlignment="Center">
                             <Image.Source>
                                 <Binding Path="MainImagePath">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
-                                            res/images/service_logo.png
+                                            /res/images/picture.png
                                         </ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>

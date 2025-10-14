@@ -31,7 +31,10 @@ namespace Popov_Autoservice
             get {
                 return (int)(Discount * 100);
             }
-            ///set;
+            set
+            {
+                Discount = value / 100.0;
+            }
         }
         public string Description { get; set; }
     

@@ -12,21 +12,9 @@ namespace Popov_Autoservice
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Net.NetworkInformation;
 
     public partial class Popov_AutoserviceEntities1 : DbContext
     {
-        private static Popov_AutoserviceEntities1 _context;
-
-        public static Popov_AutoserviceEntities1 GetContext()
-        {
-            if (_context == null)
-            {
-                _context = new Popov_AutoserviceEntities1();
-            }
-
-            return _context;
-        }
         public Popov_AutoserviceEntities1()
             : base("name=Popov_AutoserviceEntities1")
         {
@@ -45,7 +33,6 @@ namespace Popov_Autoservice
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductPhoto> ProductPhoto { get; set; }
         public virtual DbSet<ProductSale> ProductSale { get; set; }
-        public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }

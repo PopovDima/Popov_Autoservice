@@ -97,7 +97,6 @@ namespace Popov_Autoservice
             // Пытаемся распознать введенный текст как время (формат чч:мм)
             if (TimeSpan.TryParse(s, out TimeSpan startTime))
             {
-                // Проверяем, чтобы введенное время было в пределах 24 часов
                 if (startTime.TotalHours >= 24)
                 {
                     TBEnd.Text = "Ошибка: > 24ч";

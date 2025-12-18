@@ -107,7 +107,6 @@ namespace Popov_Autoservice
                 TimeSpan duration = TimeSpan.FromMinutes(_currentService.Duration);
                 TimeSpan endTime = startTime.Add(duration);
 
-                // Если сумма превышает 24 часа, используем остаток от деления (переход на следующие сутки)
                 if (endTime.TotalHours >= 24)
                 {
                     endTime = TimeSpan.FromTicks(endTime.Ticks % TimeSpan.FromDays(1).Ticks);

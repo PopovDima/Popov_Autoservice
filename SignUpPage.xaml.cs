@@ -104,7 +104,6 @@ namespace Popov_Autoservice
                     return;
                 }
 
-                // Вычисляем время окончания, добавляя длительность услуги (в минутах)
                 TimeSpan duration = TimeSpan.FromMinutes(_currentService.Duration);
                 TimeSpan endTime = startTime.Add(duration);
 

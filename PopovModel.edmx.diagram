@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2265ac8388a14da9b1b00d6935cc0b45" Name="Diagram1">
+      <Diagram DiagramId="abad7fd70957493f8bc27417429382ef" Name="Diagram1">
         <EntityTypeShape EntityType="Popov_AutoserviceModel.Client" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Popov_AutoserviceModel.ClientService" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Popov_AutoserviceModel.DocumentByService" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="Popov_AutoserviceModel.ProductSale" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Popov_AutoserviceModel.Service" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Popov_AutoserviceModel.ServicePhoto" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Popov_AutoserviceModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Popov_AutoserviceModel.Tag" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
         <AssociationConnector Association="Popov_AutoserviceModel.FK_Client_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="Popov_AutoserviceModel.FK_ClientService_Client" ManuallyRouted="false" />

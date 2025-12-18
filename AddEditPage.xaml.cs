@@ -48,9 +48,13 @@ namespace Popov_Autoservice
             {
                 errors.AppendLine("Укажите скидку");
             }
-            if (string.IsNullOrWhiteSpace(_currentService.Duration))
+            if (_currentService.Duration == 0)
             {
                 errors.AppendLine("Укажите длительность услуги");
+            }
+            if (_currentService.Discount < 0 || _currentService.Discount > 100)
+            {
+                errors.AppendLine("Укажите скидку от 0 до 100");
             }
             if (errors.Length > 0)
             {
@@ -58,20 +62,30 @@ namespace Popov_Autoservice
                 return;
             }
 
-            if(_currentService.ID == 0)
-            {
-                Popov_AutoserviceEntities1.GetContext().Service.Add(_currentService);
-            }
+            var allServices = Popov_AutoserviceEntities1.GetContext().Service.ToList();
+            allServices = allServices.Where(p => p.Title == _currentService.Title && p.ID != _currentService.ID).ToList();
 
-            try
+            if (allServices.Count == 0)
             {
-                Popov_AutoserviceEntities1.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
-                Manager.MainFrame.GoBack();
+                if (_currentService.ID == 0)
+                {
+                    Popov_AutoserviceEntities1.GetContext().Service.Add(_currentService);
+                }
+
+                try
+                {
+                    Popov_AutoserviceEntities1.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                    Manager.MainFrame.GoBack();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Уже существует такая услуга");
             }
         }
     }

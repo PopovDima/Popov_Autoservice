@@ -116,6 +116,12 @@
     <Compile Include="ServicePhoto.cs">
       <DependentUpon>PopovModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>PopovModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tag.cs">
       <DependentUpon>PopovModel.tt</DependentUpon>
     </Compile>
@@ -136,6 +142,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,16 +192,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PopovModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PopovModel.edmx</DependentUpon>
-      <LastGenOutput>PopovModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PopovModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PopovModel.edmx</DependentUpon>
-      <LastGenOutput>PopovModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="res\images\picture.png" />
     <Resource Include="Услуги автосервиса\diz.jpg" />
     <Resource Include="Услуги автосервиса\rulevoe-upravlenie-avtomobilya.jpg" />
@@ -211,6 +211,17 @@
     <Resource Include="Услуги автосервиса\Шиномонтаж.jpg" />
     <Resource Include="Услуги автосервиса\Электрика.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="PopovModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PopovModel.edmx</DependentUpon>
+      <LastGenOutput>PopovModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PopovModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PopovModel.edmx</DependentUpon>
+      <LastGenOutput>PopovModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
